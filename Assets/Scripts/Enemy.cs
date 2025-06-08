@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -13,6 +14,7 @@ public class Enemy : MonoBehaviour
     public int stepS = 0;
     private string vay;
     private bool IfDestroy = false;
+    public int hp = 10;
 
     private void Awake()
     {
@@ -25,6 +27,11 @@ public class Enemy : MonoBehaviour
         StreamReader sr = new StreamReader("./Assets/Scenes/level 1/map1");
         string line = sr.ReadLine();
         return line;
+    }
+
+    public Vector2 GetPosition()
+    {
+        return transform.position;
     }
 
     private void Move(int stepp)
@@ -50,6 +57,11 @@ public class Enemy : MonoBehaviour
          }
     }
 
+    public void kill()
+    {
+        Destroy(this);
+        IfDestroy = true;
+    }
 
     void FixedUpdate()
     {
