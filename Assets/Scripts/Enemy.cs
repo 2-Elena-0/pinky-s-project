@@ -24,7 +24,6 @@ public class Enemy : MonoBehaviour
     {
         StreamReader sr = new StreamReader("./Assets/Scenes/level 1/map1");
         string line = sr.ReadLine();
-        Debug.Log(line);
         return line;
     }
 
