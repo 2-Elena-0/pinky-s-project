@@ -17,6 +17,11 @@ public class tower : MonoBehaviour
         enemies.Add(other.gameObject);
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        enemies.Remove(other.gameObject);
+    }
+
     private void Update()
     {
         if (enemies.Count != 0)
